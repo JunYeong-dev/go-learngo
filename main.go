@@ -39,6 +39,8 @@ func main() {
 	fmt.Println(totalLength, upperName)
 
 	repeatMe("nick", "judy", "sindy", "nana")
+
+	fmt.Println(lenAndLower("JUDY"))
 }
 
 // Java와 Python등과 다르게 매개변수와 return값의 type을 설정해 줘야함
@@ -56,3 +58,14 @@ func lenAndUpper(name string) (int, string) {
 func repeatMe(words ...string) {
 	fmt.Println(words)
 }
+
+// 'naked' return
+func lenAndLower(name string) (length int, lowercase string) {
+	// 'defer' : function이 끝난 후에 실행되는 코드
+	defer fmt.Println("Finish")
+	length = len(name)
+	lowercase = strings.ToLower(name)
+	return
+}
+
+// defer
