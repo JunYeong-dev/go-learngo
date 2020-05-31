@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/JunYeong-dev/learngo/something"
 )
@@ -26,4 +27,32 @@ func main() {
 	// 축약형은 오로지 function안에서만 가능하고, 변수에만 적용 가능
 	a = "judy"
 	fmt.Println(a)
+
+	// 함수 사용
+	fmt.Println(multiply(2, 3))
+
+	// return값이 2개이기 때문에 2개의 변수로 받아줌
+	// 만약 한개의 return값만 받고 싶은 경우
+	// totalLength, _ := lenAndUpper("nick")
+	// 위와 같이 _ (언더바)를 사용하면 컴파일러가 무시하게 됨
+	totalLength, upperName := lenAndUpper("nick")
+	fmt.Println(totalLength, upperName)
+
+	repeatMe("nick", "judy", "sindy", "nana")
+}
+
+// Java와 Python등과 다르게 매개변수와 return값의 type을 설정해 줘야함
+// 매개변수가 같은 type일 경우에는 (a, b int) 와 같이 쓸 수 있음
+func multiply(a int, b int) int {
+	return a * b
+}
+
+// Go의 함수가 다른 언어와 다른 점은 여러 개의 return값을 가질 수 있음
+func lenAndUpper(name string) (int, string) {
+	return len(name), strings.ToUpper(name)
+}
+
+// 다수의 매개변수를 받기 위해서 type앞에 ...을 붙여주면 됨
+func repeatMe(words ...string) {
+	fmt.Println(words)
 }
