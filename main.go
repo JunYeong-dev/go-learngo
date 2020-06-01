@@ -41,6 +41,8 @@ func main() {
 	repeatMe("nick", "judy", "sindy", "nana")
 
 	fmt.Println(lenAndLower("JUDY"))
+
+	fmt.Println(superAdd(1, 2, 3, 4, 5, 6))
 }
 
 // Java와 Python등과 다르게 매개변수와 return값의 type을 설정해 줘야함
@@ -68,4 +70,19 @@ func lenAndLower(name string) (length int, lowercase string) {
 	return
 }
 
-// defer
+// range를 사용한 loop
+func superAdd(numbers ...int) int {
+	total := 0
+	// 첫번째 값은 index지만 이 함수에서는 사용하지 않기 때문에 _ 로 ignore처리
+	// range는 array에 loop를 적용할 수 있도록 해줌
+	for _, number := range numbers {
+		total += number
+	}
+
+	// 흔히 알고 있는 for문 형식으로도 loop를 만들 수 있음
+	// for i := 0; i < len(numbers); i++ {
+	// 	total += numbers[i]
+	// }
+
+	return total
+}
