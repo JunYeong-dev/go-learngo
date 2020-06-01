@@ -43,6 +43,8 @@ func main() {
 	fmt.Println(lenAndLower("JUDY"))
 
 	fmt.Println(superAdd(1, 2, 3, 4, 5, 6))
+
+	fmt.Println(canIDrink(18))
 }
 
 // Java와 Python등과 다르게 매개변수와 return값의 type을 설정해 줘야함
@@ -85,4 +87,23 @@ func superAdd(numbers ...int) int {
 	// }
 
 	return total
+}
+
+// 조건문
+func canIDrink(age int) bool {
+	// 기본적인 조건문
+	// if age < 18 {
+	// 	return false
+	// } else {
+	// 	return true
+	// }
+
+	// Go에서는 if안에서 변수를 정의하고 사용할 수 있음
+	// 물론 일반적 사용방법으로 변수를 따로 설정할 수 있지만
+	// 이 조건문에서만 사용하기 때문에 코드를 읽는 사람이 이해하기 더 좋음
+	// else가 없는 이유는 단순히 조금 더 깔끔한 코드를 위해(물론 써도 상관 없음)
+	if koreanAge := age + 2; koreanAge < 18 {
+		return false
+	}
+	return true
 }
