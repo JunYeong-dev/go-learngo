@@ -107,3 +107,34 @@ func canIDrink(age int) bool {
 	}
 	return true
 }
+
+// switch
+func canIDrinkSwitch(age int) bool {
+	// 일반적인 switch - Java와 크게 다르지 않음; 차이점은 Go에서는 break문을 사용하지 않음
+
+	// switch {
+	// case age < 18:
+	// 	return false
+	// case age == 18:
+	// 	return true
+	// case age > 100:
+	// 	return false
+	// }
+	// return false
+
+	// switch age{
+	// case 10:
+	// 	return false
+	// case 18:
+	// 	return true
+	// return false
+
+	// 조건문과 마찬가지로 switch안에서 변수를 정의하고 사용할 수 있음
+	switch koreanAge := age + 2; koreanAge {
+	case 10:
+		return false
+	case 18:
+		return true
+	}
+	return false
+}
