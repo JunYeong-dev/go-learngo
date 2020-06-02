@@ -45,6 +45,38 @@ func main() {
 	fmt.Println(superAdd(1, 2, 3, 4, 5, 6))
 
 	fmt.Println(canIDrink(18))
+
+	// Low-Level programming - 메모리에 접근해서 메모리의 주소를 보거나 메모리의 값을 볼 수 있음
+	// 주로 사용되는 경우는 값을 복사시키는 것이 아닌 메모리에 저장된 object를 서로 똑같이 가지고 싶을 경우
+	// 무거운 데이터 구조를 다루고 있을 경우 성능 향상에 큰 도움이 됨
+
+	// 일반적인 변수 사용; 단순 값 복사
+	c := 2
+	d := a
+	c = 10
+	// 예상 기대치 10 2
+	fmt.Println(c, d)
+
+	// Low-Level programming - Pointers
+	x := 2
+	// 변수앞에 '&'를 통해 변수 x의 메모리 주소를 복사함(볼 수 있음)
+	// 연결이 된다고 볼 수 있음, y는 x를 살펴보는 pointer
+	y := &x
+	// '*'는 살펴보거나 훑어본다는 느낌으로 사용됨
+	// 예상 기대치 x의 메모리 주소
+	fmt.Println(y)
+	// 예상 기대치 2
+	fmt.Println(*y)
+	x = 7
+	// 예상 기대치 7
+	// 일반적인 변수 사용일 경우 x의 값이 변하더라도 y의 값에는 변화가 없는것이 맞지만
+	// y에는 x의 메모리 주소를 가지고 있으므로 x의 값이 변하게 되면 그대로 따라가게 됨
+	fmt.Println(*y)
+
+	// 반대로 y의 값을 바꿔서 x의 값을 변경할 수 있음; because 연결이 되어있어서
+	*y = 100
+	// 예상 기대치 100
+	fmt.Println(x)
 }
 
 // Java와 Python등과 다르게 매개변수와 return값의 type을 설정해 줘야함
