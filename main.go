@@ -7,6 +7,12 @@ import (
 	"github.com/JunYeong-dev/learngo/something"
 )
 
+type personStruct struct {
+	name    string
+	age     int
+	favFood []string
+}
+
 // Node.js, python과 다르게 특정 function을 찾게 되는데, 그게 바로 function main - func main()
 // 컴파일러가 main package와 main function을 먼저 찾고 실행시킴
 func main() {
@@ -104,6 +110,18 @@ func main() {
 	for key, value := range person {
 		fmt.Println(key, value)
 	}
+
+	// Struct
+	// Object와 비슷한 형태로 Map보다 유연함
+	// Struct를 사용하기 위해선 먼저 정의를 해야함(코드는 위쪽에)
+	favFood := []string{"kimchi", "ramen"}
+	// 이런식으로 Struct를 정의해 줄 수 있지만 직관적이지 않기 때문에 별로 좋은 방법은 아님
+	judy := personStruct{"judy", 17, favFood}
+	// 그렇기 때문에 어떤 변수인지 명시해 주는 것이 좋음
+	nick := personStruct{name: "nick", age: 18, favFood: favFood}
+	fmt.Println(judy)
+	fmt.Println(judy.age)
+	fmt.Println(nick)
 
 }
 
