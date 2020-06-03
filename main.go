@@ -96,6 +96,15 @@ func main() {
 	age = append(age, 15)
 	fmt.Println(age)
 
+	// Map
+	// Key와 Value의 Type을 설정해 줘야 하며 Type에 맞는 값만 들어갈 수 있음
+	person := map[string]string{"name": "judy", "age": "17"}
+	fmt.Println(person)
+	// range도 사용할 수 있음
+	for key, value := range person {
+		fmt.Println(key, value)
+	}
+
 }
 
 // Java와 Python등과 다르게 매개변수와 return값의 type을 설정해 줘야함
