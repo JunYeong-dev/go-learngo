@@ -77,6 +77,25 @@ func main() {
 	*y = 100
 	// 예상 기대치 100
 	fmt.Println(x)
+
+	// Arrays and Slices
+	// Array
+	// 기본적인 Array의 경우 Array의 크기와 Type도 같이 적어줘야 한다
+	names := [5]string{"nick", "judy", "sindy"}
+	// 값을 추가할 수도 있음
+	names[3] = "nana"
+	names[4] = "nico"
+	fmt.Println(names)
+
+	// Array의 크기를 제한하고 싶지 않은 경우에 사용하는 것이 slice
+	// Slice
+	age := []int{24, 26, 19}
+	// Slice는 값을 추가 하기 위해 append(Slice, 추가할 값)함수를 사용해야 함
+	// 하지만 append만으로 Slice에 값을 추가 해주는 것이 아닌, 값이 추가된 Slice를 return하기 때문에
+	// 변수를 재정의 해줘야 추가가 됨
+	age = append(age, 15)
+	fmt.Println(age)
+
 }
 
 // Java와 Python등과 다르게 매개변수와 return값의 type을 설정해 줘야함
